@@ -1,0 +1,63 @@
+{
+  "app_id": "dumbdropdocker",
+  "title": "DumbDrop",
+  "image": "dumbwareio/dumbdrop:sha-ff8f813f493e89c7da056e7a3101ce2ef48e3960",
+  "repo_name": "dumbdrop",
+  "mode": "wrapper",
+  "container_port": 3000,
+  "category": [
+    "Utilities"
+  ],
+  "volumes": [
+    {
+      "host": "/Volume1/DockerAppData/dumbdropdocker/data",
+      "container": "/data"
+    }
+  ],
+  "env": {
+    "TZ": "Asia/Shanghai",
+    "HOME": "/data",
+    "UPLOAD_DIR": "/data/uploads"
+  },
+  "auth": "DumbWare",
+  "upstream_url": "https://github.com/DumbWareio/DumbDrop",
+  "upstream_license": "GPL-3.0",
+  "descript": "DumbDrop is a small self-hosted file drop for your NAS: open the web page, drag files or whole folders in, and they are saved with their folder structure. An optional 4-10 digit PIN protects the page, and the maximum file size, allowed extensions and auto-upload can be configured. An optional file list adds download and delete buttons. Files do not expire on their own. The package runs the official upstream image unmodified as a non-root container; there are no accounts, no analytics and no telemetry.",
+  "release_note": "2026.11.14-4: remediation of the App Center review (C10/C3/C4/C5/C9/C2/T1). The aarch64 start-up failure is fixed by using the official multi-arch image pinned by commit (no more exec format error). This version also adds the complete source repository and README, a full privacy policy, licence and trademark notices, accurate descriptions in 23 languages, and a documented note for the retained upstream CVE. See CHANGELOG.md.",
+  "important": "Open http://<NAS-IP>:8162 and drop files; they are stored in /Volume1/DockerAppData/dumbdropdocker/data/uploads and do not expire automatically. Data survives restarts and updates; delete uploads with the optional file list (SHOW_FILE_LIST=true) or in the NAS file manager. Runs as uid 1000. Needs DockerEngine. Set DUMBDROP_PIN to require a PIN. Back up the data folder before uninstalling with data removal. Plain HTTP on the LAN; use a VPN or a TLS reverse proxy off-LAN. Privacy policy: see the Help link.",
+  "healthcheck": [
+    "CMD-SHELL",
+    "wget -q -O /dev/null http://127.0.0.1:3000/ || exit 1"
+  ],
+  "entrypoint_file": "src/entrypoint.sh",
+  "platform": "x86_64",
+  "user": "1000:1000",
+  "publisher": "Moechz",
+  "compose_project": "dumbdropdocker",
+  "github_repo": "dumbdrop",
+  "upstream_version": "2026.11.14",
+  "release_tag_prefix": "v",
+  "version": "2026.11.14-4",
+  "help": "https://github.com/Moechz/dumbdrop/blob/main/PRIVACY.md",
+  "official": "https://github.com/DumbWareio/DumbDrop",
+  "license": "GPL-3.0",
+  "docker_socket": false,
+  "group_add": [],
+  "platforms": [
+    "x86_64",
+    "aarch64"
+  ],
+  "translations": {
+    "zh-cn": {
+      "descript": "DumbDrop 是一个轻量的自托管文件投递页：打开网页，把文件或整个文件夹拖进去，文件会按原有目录结构保存在 NAS 上。可设置 4-10 位 PIN 保护页面，并可配置单文件大小上限、允许的扩展名和自动上传；启用文件列表后可下载或删除已上传文件。文件不会自动过期。本应用以非 root 容器运行官方上游镜像（未修改），没有账户体系，也不含分析或遥测。",
+      "release_note": "2026.11.14-4：整改应用中心审核意见（C10/C3/C4/C5/C9/C2/T1）——改用按 commit 固定的官方多架构镜像，修复 aarch64 启动失败（exec format error）；补全源码仓库与 README、完整隐私政策、许可证与商标声明；修正应用描述及 23 语言文案；T1 保留并说明原因，详见 CHANGELOG.md。",
+      "important": "打开 http://<NAS-IP>:8162 拖入文件；文件保存在 /Volume1/DockerAppData/dumbdropdocker/data/uploads，不会自动过期。重启和升级不会丢失；可在可选的文件列表中删除（SHOW_FILE_LIST=true），或在 NAS 文件管理器中删除。容器以 uid 1000 运行。需要 DockerEngine 和 Docker Hub。设置 DUMBDROP_PIN 可启用 PIN。卸载并删除数据前请备份。局域网内为 HTTP；在不可信网络中请使用 VPN 或带 TLS 的反向代理。隐私政策见帮助链接。"
+    },
+    "zh-hk": {
+      "descript": "DumbDrop 是一個輕量的自託管檔案投遞頁：開啟網頁，把檔案或整個資料夾拖進去，檔案會按原有目錄結構儲存在 NAS 上。可設定 4-10 位 PIN 保護頁面，並可設定單檔大小上限、允許的副檔名和自動上傳；啟用檔案清單後可下載或刪除已上傳檔案。檔案不會自動過期。本應用以非 root 容器執行官方上游映像（未修改），沒有帳戶體系，也不含分析或遙測。",
+      "release_note": "2026.11.14-4：整改應用中心審核意見（C10/C3/C4/C5/C9/C2/T1）——改用按 commit 固定的官方多架構映像，修復 aarch64 啟動失敗（exec format error）；補全原始碼儲存庫與 README、完整隱私政策、授權與商標聲明；修正應用描述及 23 語言文案；T1 保留並說明原因，詳見 CHANGELOG.md。",
+      "important": "開啟 http://<NAS-IP>:8162 拖入檔案；檔案儲存在 /Volume1/DockerAppData/dumbdropdocker/data/uploads，不會自動過期。重新啟動和升級不會遺失；可在可選的檔案清單中刪除（SHOW_FILE_LIST=true），或在 NAS 檔案管理員中刪除。容器以 uid 1000 執行。需要 DockerEngine 和 Docker Hub。設定 DUMBDROP_PIN 可啟用 PIN。解除安裝並刪除資料前請備份。區域網路內為 HTTP；在不可信網路中請使用 VPN 或帶 TLS 的反向代理。隱私政策見說明連結。"
+    }
+  },
+  "host_port": 8162
+}
