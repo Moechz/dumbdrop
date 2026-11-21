@@ -12,7 +12,7 @@ installs DumbDrop on TOS 7 through the App Center:
 - `config.ini` — TOS application metadata (`application_type: docker`,
   id `dumbdropdocker`)
 - `dumbdropdocker.lang` — 23-language superset (TOS requires 14)
-- `dumbdropdocker.svg` — application icon (SVG, 709 bytes)
+- `dumbdropdocker.svg` — application icon (SVG, 411 bytes)
 - `docker-compose.yml` — one service, image
   `dumbwareio/dumbdrop:sha-ff8f813f493e89c7da056e7a3101ce2ef48e3960`
 
@@ -68,7 +68,7 @@ expire automatically**. There is no analytics, telemetry or advertising code.
 │   └── install-and-verify.sh  on-device install / runtime verification
 ├── tools/
 │   └── verify.py              review-standards self-check (runs in build.sh)
-├── TOSAppSelfTestingTool      official TerraMaster package checker (v1.0.2)
+├── TOSAppSelfTestingTool      official TerraMaster package checker
 └── .gitignore
 ```
 
